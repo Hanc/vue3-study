@@ -15,10 +15,31 @@ export default defineComponent({
     setup() {
         //this是undefined
         console.log('setup执行了-1', this);
-        return{
 
+        const show1 = ()=>{
+            console.log('setup-show1');
         }
-    }
+        return{
+            show1
+        }
+    },
+
+    data() {
+        return {
+            count : 1,
+        }
+    },
+
+    //界面渲染后的生命周期回调
+    mounted() {
+        console.log(this);
+    },
+
+    methods: {
+        show(){
+            console.log('method-show');
+        }
+    },
 })
 </script>
 <style lang="">
