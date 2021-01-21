@@ -3,7 +3,7 @@
   <h3>{{msg}}</h3>
   <button @click="msg += '==='">更新</button>
   <hr>
-  <Child :msg="msg" />
+  <Child :msg="msg" msg2= "msg2" @change="change"/>
 </template>
 
 <script lang="ts">
@@ -18,8 +18,11 @@ export default defineComponent({
   },
   setup() {
     const msg = ref('Hello vue');
+    function change(txt: string ) {
+      msg.value += txt;
+    }
     return {
-      msg
+      msg, change
     }
   }
 });
