@@ -18,7 +18,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive, computed, watch, ref } from 'vue';
+import { defineComponent, reactive, computed, watch, ref, watchEffect } from 'vue';
 
 // defineComponent函数,目的是定义一个组件，内部可以传入一个配置对象
 export default defineComponent({
@@ -51,6 +51,13 @@ export default defineComponent({
     watch(user, ({firstName, lastName}) =>{
       fullName3.value = firstName+ '_'+ lastName
     },{immediate:true, deep:true})
+
+    watchEffect(() =>{
+      const names1 = fullName3.value.split('_');
+        // const names = fullName3.value.split('_')
+        user.firstName = names1[0]
+        user.lastName = names1[1]
+    })
 
     return {
       user, fullName1, fullName2, fullName3
