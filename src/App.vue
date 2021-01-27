@@ -1,24 +1,28 @@
 <template>
-  <h2>计算属性和监视</h2>
-  <fieldset>
-    <legend>姓名和操作</legend>
-    姓氏：<input type="text" placeholder="请输入姓氏" v-model="user.firstName"/>
-    <br />
-    名字：<input type="text" placeholder="请输入名字" v-model="user.lastName"/>
+  <h2 class="mb-4">计算属性和监视</h2>
+  <div class="container mx-auto py-2 px-4 bg-gray-300 flex flex-col">
+    <fieldset class="py-2">
+    <legend class="text-2xl">姓名和操作</legend>
+    姓氏：<input type="text" class="px-4 py-2 mb-2" placeholder="请输入姓氏" v-model="user.firstName"/>
+
+    名字：<input type="text" class="px-4 py-2 mb-2" placeholder="请输入名字" v-model="user.lastName"/>
   </fieldset>
-  <fieldset>
-    <legend>计算属性和监视的演示</legend>
-    <legend>姓名和操作</legend>
-    姓氏：<input type="text" placeholder="显示姓名" v-model="fullName1"/>
-    <br />
-    名字：<input type="text" placeholder="显示姓名" v-model="fullName2"/>
-      <br />
-    名字：<input type="text" placeholder="显示姓名" v-model="fullName3"/>
+      <fieldset class="py-2">
+    <legend class="text-2xl">姓名和操作</legend>
+    <label for="">姓氏：</label><input type="text" class="px-4 py-2 mb-2" placeholder="显示姓名" v-model="fullName1"/>
+ 
+    名字：<input type="text" class="px-4 py-2 mb-2" placeholder="显示姓名" v-model="fullName2"/>
+
   </fieldset>
+  <div>
+    名字：<input type="text" class="px-4 py-2 mb-2" placeholder="显示姓名" v-model="fullName3"/>
+  </div>
+  </div>
 </template>
 
 <script lang="ts">
 import { defineComponent, reactive, computed, watch, ref, watchEffect } from 'vue';
+
 
 // defineComponent函数,目的是定义一个组件，内部可以传入一个配置对象
 export default defineComponent({
